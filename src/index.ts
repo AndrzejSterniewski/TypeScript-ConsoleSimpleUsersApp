@@ -81,7 +81,7 @@ class Message {
 
     public remove(name: string): void {
         const index = this.data.findIndex(user => user.name === name);
-        if (index) {
+        if (index > -1) {
             // czy to dobrze?
             this.data.splice(index, 1);
             Message.showColorized(MessageVariant.Success, "User deleted!");
@@ -138,7 +138,9 @@ const startApp = () => {
           Message.showColorized(MessageVariant.Info, "Bye bye!");
           return;
       }
-  
+
       startApp();
     });
   }
+
+  startApp();
